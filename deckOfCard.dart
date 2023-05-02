@@ -1,13 +1,14 @@
 void main() {
   var deck = Deck();
-  print(deck);
+  deck.shuffle();
+  print(deck.cardsWithSuit('Clubs'));
 }
 
 class Deck {
   List<Card> cards = [];
 
   Deck() {
-    var ranks = ['Ace', 'two', 'three', 'four', 'five'];
+    var ranks = ['Ace', 'Two', 'Three', 'Four', 'Five'];
     var suits = ['Clubs', 'Diamonds', 'Hearts', 'Spades'];
 
     for (var suit in suits) {
@@ -17,9 +18,17 @@ class Deck {
       }
     }
   }
-  @override
-  toString() {
-    return 'This is a deck';
+  @override toString(){
+    return cards.toString();
+  }
+  shuffle() {
+  cards.shuffle();  
+    }
+  cardsWithSuit(String suit){
+    return cards.where((card){
+      return card.suit == suit;
+    });
+    
   }
 }
 
@@ -27,4 +36,7 @@ class Card {
   String rank;
   String suit;
   Card(this.rank, this.suit);
+ @override toString(){
+    return '$rank of $suit';
+  }
 }
