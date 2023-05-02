@@ -18,17 +18,17 @@ class Deck {
       }
     }
   }
-  @override toString(){
+  @override
+  toString() {
     return cards.toString();
   }
+
   shuffle() {
-  cards.shuffle();  
-    }
-  cardsWithSuit(String suit){
-    return cards.where((card){
-      return card.suit == suit;
-    });
-    
+    cards.shuffle();
+  }
+
+  cardsWithSuit(String suit) {
+    return cards.where((card) => card.suit == suit);
   }
 }
 
@@ -36,7 +36,8 @@ class Card {
   String rank;
   String suit;
   Card(this.rank, this.suit);
- @override toString(){
+  @override
+  toString() {
     return '$rank of $suit';
   }
 }
