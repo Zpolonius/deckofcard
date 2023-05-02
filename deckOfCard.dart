@@ -18,7 +18,7 @@ class Deck {
 
     for (var suit in suits) {
       for (var rank in ranks) {
-        var card = Card(rank, suit);
+        var card = Card(rank: rank, suit: suit);
         cards.add(card);
       }
     }
@@ -49,9 +49,9 @@ class Deck {
 }
 
 class Card {
-  String rank;
   String suit;
-  Card(this.rank, this.suit);
+  String rank;
+  Card({required this.rank, required this.suit});
   @override
   toString() {
     return '$rank of $suit';
